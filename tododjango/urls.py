@@ -16,7 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
+from accounts.views import (
+    login_view,
+    logout_view,
+    register_view
+)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('todoapp.urls'))
+    path('',include('todoapp.urls')),
+    path('login/', login_view),
+    path('logout/', logout_view),
+    path('register/', register_view)
 ]
